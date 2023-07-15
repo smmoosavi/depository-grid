@@ -14,10 +14,6 @@
    * How large should the button be?
    */
   export let size: 'small' | 'medium' | 'large' = 'medium';
-  /**
-   * Button contents
-   */
-  export let label = '';
 
   $: mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
 
@@ -30,5 +26,5 @@
   {style}
   on:click
 >
-  {label}
+  <slot />
 </button>

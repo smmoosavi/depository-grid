@@ -17,6 +17,9 @@ devDependencies:
   '@storybook/addon-links':
     specifier: ^7.0.27
     version: 7.0.27(react-dom@18.2.0)(react@18.2.0)
+  '@storybook/addon-svelte-csf':
+    specifier: ^3.0.3
+    version: 3.0.3(@storybook/svelte@7.0.27)(@storybook/theming@7.0.27)(@sveltejs/vite-plugin-svelte@2.4.2)(svelte@4.0.5)(vite@4.4.4)
   '@storybook/blocks':
     specifier: ^7.0.27
     version: 7.0.27(react-dom@18.2.0)(react@18.2.0)
@@ -3349,6 +3352,34 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       ts-dedent: 2.2.0
+    dev: true
+
+  /@storybook/addon-svelte-csf@3.0.3(@storybook/svelte@7.0.27)(@storybook/theming@7.0.27)(@sveltejs/vite-plugin-svelte@2.4.2)(svelte@4.0.5)(vite@4.4.4):
+    resolution: {integrity: sha512-X/AcLB1uZ2CZT68/R3tsRHSBciUv9rLbkzl6fbAN2TqGfdvwBcYjpho0FslLMBzUUhW7XlYgroikDCKnSkHdmg==}
+    peerDependencies:
+      '@storybook/svelte': ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
+      '@storybook/theming': ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
+      '@sveltejs/vite-plugin-svelte': ^1.0.0 || ^2.0.0
+      svelte: ^3.50.0
+      svelte-loader: ^3.1.2
+      vite: ^3.0.0 || ^4.0.0
+    peerDependenciesMeta:
+      '@sveltejs/vite-plugin-svelte':
+        optional: true
+      svelte-loader:
+        optional: true
+      vite:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.22.6
+      '@storybook/svelte': 7.0.27(svelte@4.0.5)
+      '@storybook/theming': 7.0.27(react-dom@18.2.0)(react@18.2.0)
+      '@sveltejs/vite-plugin-svelte': 2.4.2(svelte@4.0.5)(vite@4.4.4)
+      fs-extra: 11.1.1
+      magic-string: 0.30.1
+      svelte: 4.0.5
+      ts-dedent: 2.2.0
+      vite: 4.4.4(@types/node@20.4.2)
     dev: true
 
   /@storybook/addon-toolbars@7.0.27(react-dom@18.2.0)(react@18.2.0):

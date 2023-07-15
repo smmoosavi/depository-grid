@@ -23,6 +23,7 @@
     "@storybook/addon-essentials": "^7.0.27",
     "@storybook/addon-interactions": "^7.0.27",
     "@storybook/addon-links": "^7.0.27",
+    "@storybook/addon-svelte-csf": "^3.0.3",
     "@storybook/blocks": "^7.0.27",
     "@storybook/svelte": "^7.0.27",
     "@storybook/sveltekit": "^7.0.27",

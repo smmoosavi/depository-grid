@@ -1,0 +1,2 @@
+'*.{md,mdx,json,yml,js,ts,html,svelte}': 'pnpm exec prettier --plugin-search-dir . --write'
+'*.prisma': 'pnpm exec prisma format'

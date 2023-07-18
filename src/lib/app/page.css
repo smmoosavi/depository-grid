@@ -1,0 +1,9 @@
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+}

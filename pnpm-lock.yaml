@@ -56,6 +56,9 @@ devDependencies:
   daisyui:
     specifier: ^3.2.1
     version: 3.2.1
+  devalue:
+    specifier: ^4.3.2
+    version: 4.3.2
   eslint:
     specifier: ^8.28.0
     version: 8.45.0
@@ -71,6 +74,9 @@ devDependencies:
   husky:
     specifier: ^8.0.3
     version: 8.0.3
+  jest-leak-detector:
+    specifier: ^29.6.1
+    version: 29.6.1
   lint-staged:
     specifier: ^13.2.3
     version: 13.2.3
@@ -7123,6 +7129,11 @@ packages:
       minimatch: 3.1.2
     dev: true
 
+  /jest-get-type@29.4.3:
+    resolution: {integrity: sha512-J5Xez4nRRMjk8emnTpWrlkyb9pfRQQanDrvWHhsR1+VUfbwxi30eVcZFlcdGInRibU4G5LwHXpI7IRHU0CY+gg==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    dev: true
+
   /jest-haste-map@29.6.1:
     resolution: {integrity: sha512-0m7f9PZXxOCk1gRACiVgX85knUKPKLPg4oRCjLoqIm9brTHXaorMA0JpmtmVkQiT8nmXyIVoZd/nnH1cfC33ig==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -7140,6 +7151,14 @@ packages:
       walker: 1.0.8
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /jest-leak-detector@29.6.1:
+    resolution: {integrity: sha512-OrxMNyZirpOEwkF3UHnIkAiZbtkBWiye+hhBweCHkVbCgyEy71Mwbb5zgeTNYWJBi1qgDVfPC1IwO9dVEeTLwQ==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    dependencies:
+      jest-get-type: 29.4.3
+      pretty-format: 29.6.1
     dev: true
 
   /jest-mock@27.5.1:

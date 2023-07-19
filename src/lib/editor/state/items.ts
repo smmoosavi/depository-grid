@@ -1,4 +1,4 @@
-import type { Pattern } from './pattern';
+import type { Pattern } from './pattern/pattern';
 
 export type ItemId = string;
 export type CellLabel = number;

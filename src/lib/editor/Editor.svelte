@@ -1,9 +1,9 @@
 <script lang="ts">
-  import EditorSection from '$lib/editor/EditorSection.svelte';
-  import ItemsEditor from '$lib/editor/items-editor/ItemsEditor.svelte';
-  import LayoutEditor from '$lib/editor/layout-editor/LayoutEditor.svelte';
-  import Paper from './Paper.svelte';
-  import EditorLayout from './EditorLayout.svelte';
+  import ItemsEditor from './items-editor/ItemsEditor.svelte';
+  import LayoutEditor from './layout-editor/LayoutEditor.svelte';
+  import EditorLayout from './layout/EditorLayout.svelte';
+  import EditorSection from './layout/EditorSection.svelte';
+  import Paper from './preview/Paper.svelte';
 </script>
 
 <EditorLayout>

@@ -1,9 +1,13 @@
 <script lang="ts">
+  import { createStore, setStore } from './state/store';
   import ItemsEditor from './items-editor/ItemsEditor.svelte';
   import LayoutEditor from './layout-editor/LayoutEditor.svelte';
   import EditorLayout from './layout/EditorLayout.svelte';
   import EditorSection from './layout/EditorSection.svelte';
   import Paper from './preview/Paper.svelte';
+
+  const store = createStore();
+  setStore(store);
 </script>
 
 <EditorLayout>

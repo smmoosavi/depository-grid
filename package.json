@@ -45,6 +45,7 @@
     "husky": "^8.0.3",
     "jest-leak-detector": "^29.6.1",
     "lint-staged": "^13.2.3",
+    "nanoid": "^4.0.2",
     "peggy": "^3.0.2",
     "postcss": "^8.4.26",
     "postcss-import": "^15.1.0",

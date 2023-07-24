@@ -46,9 +46,11 @@
     }
   };
 
-  const onSubmit = (e: SubmitEvent) => {
-    const form = new FormData(e.target as HTMLFormElement);
-    const res = schema.safeParse(Object.fromEntries(form.entries()));
+  const store = getStore();
+  const { dispatch } = store;
+
+  const save = (input: { tables: string; rows: string; cols: string }) => {
+    const res = schema.safeParse(input);
     if (!res.success) {
       errors = res.error.errors;
       return;
@@ -60,17 +62,16 @@
     dispatch(updateItem(id, { ...g, id }));
   };
 
-  const store = getStore();
-  const { dispatch } = store;
+  $: save({ tables, rows, cols });
 </script>
 
-<form on:submit|preventDefault={onSubmit}>
+<div>
   <input
     type="text"
     name="tables"
     class="input input-ghost max-w-[128px]"
     placeholder="tables"
-    value={tables}
+    bind:value={tables}
     bind:this={tablesInput}
     on:keydown={onPress}
   />
@@ -80,7 +81,7 @@
     name="rows"
     class="input input-ghost max-w-[128px]"
     placeholder="rows"
-    value={rows}
+    bind:value={rows}
     bind:this={rowsInput}
     on:keydown={onPress}
   />
@@ -90,15 +91,13 @@
     name="cols"
     class="input input-ghost max-w-[128px]"
     placeholder="columns"
-    value={cols}
+    bind:value={cols}
     bind:this={colsInput}
     on:keydown={onPress}
   />
-
-  <button type="submit" class="btn btn-success btn-outline">Save</button>
 
   <br />
   {#each errors as error}
     <p class="text-error">{error.path}: {error.message}</p>
   {/each}
-</form>
+</div>

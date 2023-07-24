@@ -1,20 +1,38 @@
 <script lang="ts">
   import AddItem from '$lib/editor/items-editor/AddItem.svelte';
   import ItemEditor from '$lib/editor/items-editor/ItemEditor.svelte';
-  import { getStore } from '$lib/editor/state/store';
+  import type { Item } from '$lib/editor/state/items';
+  import { getStore, updateItems } from '$lib/editor/state/store';
   import { flip } from 'svelte/animate';
-  import { slide } from 'svelte/transition';
+  import { type DndEvent, dndzone } from 'svelte-dnd-action';
 
   const store = getStore();
-  const { state } = store;
+  const { state, dispatch } = store;
+  let items = $state.items;
+  $: items = $state.items;
+
+  const onConsider = (e: CustomEvent<DndEvent<Item>>) => {
+    items = e.detail.items;
+  };
+  const onFinalize = (e: CustomEvent<DndEvent<Item>>) => {
+    items = e.detail.items;
+    dispatch(updateItems(e.detail.items));
+  };
+  const dropTargetStyle = {
+    background: 'rgb(243 244 246 / var(--tw-bg-opacity))',
+    'box-shadow': 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
+    'border-radius': '0.25rem',
+  };
 </script>
 
 <div>
-  {#each $state.items as item (item.id)}
-    <div animate:flip in:slide out:slide class="mt-5">
-      <ItemEditor {item} />
-    </div>
-  {/each}
+  <div use:dndzone={{ items, dropTargetStyle }} on:consider={onConsider} on:finalize={onFinalize}>
+    {#each items as item (item.id)}
+      <div animate:flip class="mt-5">
+        <ItemEditor {item} />
+      </div>
+    {/each}
+  </div>
   <div class="mt-4">
     <AddItem />
   </div>

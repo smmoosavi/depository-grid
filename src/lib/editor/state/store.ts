@@ -1,9 +1,11 @@
+import type { PageLayout } from '$lib/editor/state/page-layout';
 import { getContext, setContext } from 'svelte';
 import { type Writable, writable } from 'svelte/store';
 import type { Item } from './items';
 
 export type State = {
   items: Array<Item>;
+  layout: PageLayout;
 };
 
 export type AddAction = {
@@ -62,16 +64,19 @@ function reduce(state: State, action: Action): State {
   switch (action.type) {
     case 'add': {
       return {
+        ...state,
         items: [...state.items, action.item],
       };
     }
     case 'remove': {
       return {
+        ...state,
         items: state.items.filter((item) => item.id !== action.id),
       };
     }
     case 'update-item': {
       return {
+        ...state,
         items: state.items.map((item) => {
           if (item.id === action.id) {
             return action.item;
@@ -82,6 +87,7 @@ function reduce(state: State, action: Action): State {
     }
     case 'update-items': {
       return {
+        ...state,
         items: action.items,
       };
     }
@@ -95,6 +101,11 @@ export type Store = {
 export function createStore(): Store {
   const init: State = {
     items: [],
+    layout: {
+      paddings: { all: 10 },
+      width: { cols: 4 },
+      height: { height: 30 },
+    },
   };
   const state = writable(init);
   const dispatch = (action: Action) => {

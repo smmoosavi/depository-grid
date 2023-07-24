@@ -16,7 +16,13 @@ export type RemoveAction = {
   id: string;
 };
 
-export type Action = AddAction | RemoveAction;
+export type UpdateItemAction = {
+  type: 'update-item';
+  id: string;
+  item: Item;
+};
+
+export type Action = AddAction | RemoveAction | UpdateItemAction;
 
 export function addItem(item: Item): AddAction {
   return {
@@ -32,6 +38,14 @@ export function removeItem(id: string): RemoveAction {
   };
 }
 
+export function updateItem(id: string, item: Item): UpdateItemAction {
+  return {
+    type: 'update-item',
+    id,
+    item,
+  };
+}
+
 function reduce(state: State, action: Action): State {
   switch (action.type) {
     case 'add': {
@@ -42,6 +56,16 @@ function reduce(state: State, action: Action): State {
     case 'remove': {
       return {
         items: state.items.filter((item) => item.id !== action.id),
+      };
+    }
+    case 'update-item': {
+      return {
+        items: state.items.map((item) => {
+          if (item.id === action.id) {
+            return action.item;
+          }
+          return item;
+        }),
       };
     }
   }

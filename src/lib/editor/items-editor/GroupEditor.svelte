@@ -1,6 +1,6 @@
 <script lang="ts">
   import EditGroupForm from '$lib/editor/items-editor/EditGroupForm.svelte';
-  import type { Group } from '$lib/editor/state/items';
+  import type { Group } from '$lib/editor/state/editor-items';
   import { getStore, removeItem } from '$lib/editor/state/store';
   import TrashIcon from '$lib/icnos/TrashIcon.svelte';
 

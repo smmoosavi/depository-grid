@@ -1,16 +1,16 @@
 import type { PageLayout } from '$lib/editor/state/page-layout';
 import { getContext, setContext } from 'svelte';
 import { type Writable, writable } from 'svelte/store';
-import type { Item } from './items';
+import type { EditorItem } from './editor-items';
 
 export type State = {
-  items: Array<Item>;
+  items: Array<EditorItem>;
   layout: PageLayout;
 };
 
 export type AddAction = {
   type: 'add';
-  item: Item;
+  item: EditorItem;
 };
 
 export type RemoveAction = {
@@ -21,17 +21,17 @@ export type RemoveAction = {
 export type UpdateItemAction = {
   type: 'update-item';
   id: string;
-  item: Item;
+  item: EditorItem;
 };
 
 export type UpdateItemsAction = {
   type: 'update-items';
-  items: Array<Item>;
+  items: Array<EditorItem>;
 };
 
 export type Action = AddAction | RemoveAction | UpdateItemAction | UpdateItemsAction;
 
-export function addItem(item: Item): AddAction {
+export function addItem(item: EditorItem): AddAction {
   return {
     type: 'add',
     item,
@@ -45,7 +45,7 @@ export function removeItem(id: string): RemoveAction {
   };
 }
 
-export function updateItem(id: string, item: Item): UpdateItemAction {
+export function updateItem(id: string, item: EditorItem): UpdateItemAction {
   return {
     type: 'update-item',
     id,
@@ -53,7 +53,7 @@ export function updateItem(id: string, item: Item): UpdateItemAction {
   };
 }
 
-export function updateItems(items: Array<Item>): UpdateItemsAction {
+export function updateItems(items: Array<EditorItem>): UpdateItemsAction {
   return {
     type: 'update-items',
     items,

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { parseNumerPattern, parseStringPattern } from '$lib/editor/state';
-  import { type Group, group as createGroup } from '$lib/editor/state/items';
+  import { type Group, group as createGroup } from '$lib/editor/state/editor-items';
   import { numberItemsToString, stringItemsToString } from '$lib/editor/state/pattern/pattern';
   import { getStore, updateItem } from '$lib/editor/state/store';
   import { transformResult } from '$lib/utils/zod-utils';

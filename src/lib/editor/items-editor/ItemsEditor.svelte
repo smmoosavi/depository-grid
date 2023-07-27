@@ -1,7 +1,7 @@
 <script lang="ts">
   import AddItem from '$lib/editor/items-editor/AddItem.svelte';
   import ItemEditor from '$lib/editor/items-editor/ItemEditor.svelte';
-  import type { Item } from '$lib/editor/state/items';
+  import type { EditorItem } from '$lib/editor/state/editor-items';
   import { getStore, updateItems } from '$lib/editor/state/store';
   import { flip } from 'svelte/animate';
   import { type DndEvent, dndzone } from 'svelte-dnd-action';
@@ -11,10 +11,10 @@
   let items = $state.items;
   $: items = $state.items;
 
-  const onConsider = (e: CustomEvent<DndEvent<Item>>) => {
+  const onConsider = (e: CustomEvent<DndEvent<EditorItem>>) => {
     items = e.detail.items;
   };
-  const onFinalize = (e: CustomEvent<DndEvent<Item>>) => {
+  const onFinalize = (e: CustomEvent<DndEvent<EditorItem>>) => {
     items = e.detail.items;
     dispatch(updateItems(e.detail.items));
   };

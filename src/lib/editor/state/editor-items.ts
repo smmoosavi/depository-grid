@@ -19,7 +19,7 @@ export type Group = {
   cells: CellPattern;
 };
 
-export type Item = Group;
+export type EditorItem = Group;
 
 export function group(tables: TablePattern, rows: RowPattern, cells: CellPattern): Group {
   const id = nanoid(6);
@@ -33,7 +33,7 @@ export function serializeGroup(group: Group): string {
   return `${tables}/${rows}/${cells}`;
 }
 
-export function serializeItem(item: Item): string {
+export function serializeItem(item: EditorItem): string {
   switch (item.kind) {
     case 'group':
       return serializeGroup(item);
@@ -47,7 +47,7 @@ export function groupLabel(group: Group): string {
   return `${tables}/${rows}/${cells}`;
 }
 
-export function itemLabel(item: Item): string {
+export function itemLabel(item: EditorItem): string {
   switch (item.kind) {
     case 'group':
       return groupLabel(item);

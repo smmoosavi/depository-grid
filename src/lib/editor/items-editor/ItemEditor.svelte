@@ -1,8 +1,8 @@
 <script lang="ts">
   import GroupEditor from '$lib/editor/items-editor/GroupEditor.svelte';
-  import type { Item } from '$lib/editor/state/items';
+  import type { EditorItem } from '$lib/editor/state/editor-items';
 
-  export let item: Item;
+  export let item: EditorItem;
 </script>
 
 {#if item.kind === 'group'}

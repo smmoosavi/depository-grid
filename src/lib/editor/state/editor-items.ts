@@ -11,6 +11,14 @@ export type CellPattern = Pattern<CellLabel>;
 export type RowPattern = Pattern<RowLabel>;
 export type TablePattern = Pattern<TableLabel>;
 
+export type Cell = {
+  kind: 'cell';
+  id: string;
+  cell: CellLabel;
+  row: RowLabel;
+  table: TableLabel;
+};
+
 export type Group = {
   kind: 'group';
   id: ItemId;
@@ -52,4 +60,31 @@ export function itemLabel(item: EditorItem): string {
     case 'group':
       return groupLabel(item);
   }
+}
+
+export function getCellsOfGroup(group: Group): Cell[] {
+  const cells: Cell[] = [];
+  for (const table of group.tables.expanded) {
+    for (const row of group.rows.expanded) {
+      for (const cell of group.cells.expanded) {
+        const id = group.id + '/' + table + '/' + row + '/' + cell;
+        cells.push({ kind: 'cell', id, cell, row, table });
+      }
+    }
+  }
+  return cells;
+}
+export function getCellsOfItem(item: EditorItem): Cell[] {
+  switch (item.kind) {
+    case 'group':
+      return getCellsOfGroup(item);
+  }
+}
+
+export function getCellOfItems(items: EditorItem[]): Cell[] {
+  const cells: Cell[] = [];
+  for (const item of items) {
+    cells.push(...getCellsOfItem(item));
+  }
+  return cells;
 }

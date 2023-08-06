@@ -1,10 +1,10 @@
 <script lang="ts">
+  import Preview from '$lib/editor/preview/Preview.svelte';
   import { createStore, setStore } from './state/store';
   import ItemsEditor from './items-editor/ItemsEditor.svelte';
   import LayoutEditor from './layout-editor/LayoutEditor.svelte';
   import EditorLayout from './layout/EditorLayout.svelte';
   import EditorSection from './layout/EditorSection.svelte';
-  import Paper from './preview/Paper.svelte';
 
   const store = createStore();
   setStore(store);
@@ -12,8 +12,7 @@
 
 <EditorLayout>
   <svelte:fragment slot="preview">
-    <Paper>page 1</Paper>
-    <Paper>page 2</Paper>
+    <Preview />
   </svelte:fragment>
   <svelte:fragment slot="editor">
     <EditorSection>

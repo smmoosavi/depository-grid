@@ -16,6 +16,7 @@
   .paper {
     width: var(--page-width);
     height: var(--page-height);
+    position: relative;
   }
   .paper:not(:last-child) {
     @apply break-after-page;

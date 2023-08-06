@@ -22,8 +22,11 @@ export function placeItems(items: Array<PrintItem>, layout: PageLayout): Page[] 
   const { width: cellWidth, height: cellHeight } = getCellSize(layout);
 
   let page: Page = { items: [] };
-  let x = padding.left;
-  let y = padding.top;
+  const x0 = padding.left;
+  const y0 = padding.top;
+
+  let x = x0;
+  let y = y0;
 
   for (const item of items) {
     const positionedItem: Positioned<PrintItem> = {
@@ -35,16 +38,21 @@ export function placeItems(items: Array<PrintItem>, layout: PageLayout): Page[] 
     };
     page.items.push(positionedItem);
     x += cellWidth;
-    if (x + cellWidth > pageWidth) {
-      x = padding.left;
+    if (x + cellWidth > pageWidth + x0) {
+      x = x0;
       y += cellHeight;
-      if (y + cellHeight > pageHeight) {
+      if (y + cellHeight > pageHeight + y0) {
         pages.push(page);
         page = { items: [] };
-        y = padding.top;
+        y = y0;
       }
     }
   }
-
+  if (page.items.length > 0) {
+    pages.push(page);
+  }
+  if (pages.length === 0) {
+    pages.push({ items: [] });
+  }
   return pages;
 }

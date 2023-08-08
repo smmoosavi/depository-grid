@@ -131,6 +131,9 @@ devDependencies:
   typescript:
     specifier: ^5.0.0
     version: 5.1.6
+  vazirmatn:
+    specifier: ^33.0.3
+    version: 33.0.3
   vite:
     specifier: ^4.4.2
     version: 4.4.4(@types/node@20.4.2)
@@ -9892,6 +9895,10 @@ packages:
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+    dev: true
+
+  /vazirmatn@33.0.3:
+    resolution: {integrity: sha512-fbjNc0CMjazZpIegWzz9OHGzI1APFboT+x7ZecXlUCtDe/nkyx7gtCTZnWS/+eeXG7fbfXymCPKJI8EsnM3iqw==}
     dev: true
 
   /vite-node@0.33.0(@types/node@20.4.2):

@@ -1,0 +1,9 @@
+@import 'vazirmatn/Vazirmatn-font-face.css';
+
+body {
+    font-family: "Vazirmatn", sans-serif;
+}
+
+.persian-numbers {
+    font-feature-settings: "ss01";
+}

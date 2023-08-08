@@ -2,6 +2,7 @@ import type { Cell } from '$lib/editor/state/editor-items';
 import { getCellSize, getPageInnerSize, getPagePadding } from '$lib/editor/state/page-layout';
 import type { PageLayout } from '$lib/editor/state/page-layout';
 
+export { Cell };
 export type PrintItem = Cell;
 export type Positioned<I> = {
   item: I;

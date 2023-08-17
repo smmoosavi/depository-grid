@@ -69,7 +69,7 @@
   <input
     type="text"
     name="tables"
-    class="input input-ghost max-w-[128px]"
+    class="input input-ghost max-w-[128px] hover:bg-white"
     placeholder="tables"
     bind:value={tables}
     bind:this={tablesInput}
@@ -79,7 +79,7 @@
   <input
     type="text"
     name="rows"
-    class="input input-ghost max-w-[128px]"
+    class="input input-ghost max-w-[128px] hover:bg-white"
     placeholder="rows"
     bind:value={rows}
     bind:this={rowsInput}
@@ -89,7 +89,7 @@
   <input
     type="text"
     name="cols"
-    class="input input-ghost max-w-[128px]"
+    class="input input-ghost max-w-[128px] hover:bg-white"
     placeholder="columns"
     bind:value={cols}
     bind:this={colsInput}

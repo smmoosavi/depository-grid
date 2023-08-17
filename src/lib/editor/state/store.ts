@@ -10,12 +10,12 @@ export type State = {
 };
 
 export type AddAction = {
-  type: 'add';
+  type: 'add-item';
   item: EditorItem;
 };
 
 export type RemoveAction = {
-  type: 'remove';
+  type: 'remove-item';
   id: string;
 };
 
@@ -34,14 +34,14 @@ export type Action = AddAction | RemoveAction | UpdateItemAction | UpdateItemsAc
 
 export function addItem(item: EditorItem): AddAction {
   return {
-    type: 'add',
+    type: 'add-item',
     item,
   };
 }
 
 export function removeItem(id: string): RemoveAction {
   return {
-    type: 'remove',
+    type: 'remove-item',
     id,
   };
 }
@@ -63,13 +63,13 @@ export function updateItems(items: Array<EditorItem>): UpdateItemsAction {
 
 function reduce(state: State, action: Action): State {
   switch (action.type) {
-    case 'add': {
+    case 'add-item': {
       return {
         ...state,
         items: [...state.items, action.item],
       };
     }
-    case 'remove': {
+    case 'remove-item': {
       return {
         ...state,
         items: state.items.filter((item) => item.id !== action.id),

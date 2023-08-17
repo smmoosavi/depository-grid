@@ -104,12 +104,13 @@ export function createStore(): Store {
     items: [],
     layout: {
       page: {
-        padding: { all: 10 },
+        padding: { all: 20 },
         width: A4.width,
         height: A4.height,
+        fontSize: 16,
       },
       cell: {
-        width: { cols: 4 },
+        width: { cols: 3 },
         height: { height: 30 },
       },
     },

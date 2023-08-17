@@ -15,15 +15,18 @@
 
   const store = getStore();
   const { state } = store;
+  let layout = $state.layout;
   $: pages = getPages($state);
 </script>
 
-{#each pages as page}
-  <Paper>
-    {#each page.items as item}
-      <ItemBox {item}>
-        <ItemPreview {item} />
-      </ItemBox>
-    {/each}
-  </Paper>
-{/each}
+<div style="font-size: {layout.page.fontSize}mm">
+  {#each pages as page}
+    <Paper>
+      {#each page.items as item}
+        <ItemBox {item}>
+          <ItemPreview {item} />
+        </ItemBox>
+      {/each}
+    </Paper>
+  {/each}
+</div>

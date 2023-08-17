@@ -24,7 +24,7 @@
 
   let tables = '10-12';
   let rows = 'A-D';
-  let cols = '1-9';
+  let cols = '0-9';
   let errors: ZodIssue[] = [];
 
   let tablesInput: HTMLInputElement | null = null;

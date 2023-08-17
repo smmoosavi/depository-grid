@@ -4,7 +4,7 @@
   export let cell: Cell;
 </script>
 
-<div class="flex h-full items-center justify-center gap-1 overflow-hidden">
+<div class="flex h-full items-center justify-center gap-1 overflow-hidden font-extrabold">
   <span class="inline-block">
     {cell.table}
   </span>

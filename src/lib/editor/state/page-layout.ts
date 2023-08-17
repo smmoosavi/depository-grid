@@ -28,6 +28,7 @@ export type PageLayout = {
     padding: PaddingConfig;
     width: number;
     height: number;
+    fontSize: number;
   };
 };
 

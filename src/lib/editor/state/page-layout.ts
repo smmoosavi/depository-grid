@@ -77,17 +77,39 @@ export function getCellSize(layout: PageLayout): Size {
     cellWith = layout.cell.width.width;
   }
   if ('cols' in layout.cell.width) {
-    cellWith = pageInnerWidth / layout.cell.width.cols;
+    cellWith = Math.floor(pageInnerWidth / layout.cell.width.cols);
   }
   let cellHeight = 0;
   if ('height' in layout.cell.height) {
     cellHeight = layout.cell.height.height;
   }
   if ('rows' in layout.cell.height) {
-    cellHeight = pageInnerHeight / layout.cell.height.rows;
+    cellHeight = Math.floor(pageInnerHeight / layout.cell.height.rows);
   }
   if ('ratio' in layout.cell.height) {
-    cellHeight = cellWith / layout.cell.height.ratio;
+    cellHeight = Math.floor(cellWith / layout.cell.height.ratio);
   }
   return { width: cellWith, height: cellHeight };
+}
+
+export function getColsCount(layout: PageLayout): number {
+  if ('width' in layout.cell.width) {
+    const innerSize = getPageInnerSize(layout);
+    return Math.floor(innerSize.width / layout.cell.width.width);
+  }
+  if ('cols' in layout.cell.width) {
+    return layout.cell.width.cols;
+  }
+  return 0;
+}
+
+export function getRowsCount(layout: PageLayout): number {
+  if ('height' in layout.cell.height) {
+    const innerSize = getPageInnerSize(layout);
+    return Math.floor(innerSize.height / layout.cell.height.height);
+  }
+  if ('rows' in layout.cell.height) {
+    return layout.cell.height.rows;
+  }
+  return 0;
 }

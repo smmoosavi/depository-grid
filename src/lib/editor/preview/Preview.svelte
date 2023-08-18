@@ -15,11 +15,11 @@
 
   const store = getStore();
   const { state } = store;
-  let layout = $state.layout;
+  $: fontSize = $state.layout.page.fontSize;
   $: pages = getPages($state);
 </script>
 
-<div style="font-size: {layout.page.fontSize}mm">
+<div style="font-size: {fontSize}mm">
   {#each pages as page}
     <Paper>
       {#each page.items as item}

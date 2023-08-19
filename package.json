@@ -8,6 +8,7 @@
     "dev": "vite dev",
     "build:peg": "./scripts/peggy.sh",
     "build": "pnpm run build:peg && vite build",
+    "build:pack": "tar -czvf dist/grid.tar.gz build",
     "preview": "vite preview",
     "test": "pnpm run test:integration && pnpm run test:unit",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

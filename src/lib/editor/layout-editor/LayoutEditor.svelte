@@ -1,7 +1,12 @@
 <script lang="ts">
   import LoadButton from '$lib/editor/layout-editor/LoadButton.svelte';
   import SaveButton from '$lib/editor/layout-editor/SaveButton.svelte';
-  import { getCellSize, getColsCount, getRowsCount } from '$lib/editor/state/page-layout';
+  import {
+    getCellSize,
+    getColsCount,
+    getRowsCount,
+    type PaddingAll,
+  } from '$lib/editor/state/page-layout';
   import { getStore } from '$lib/editor/state/store';
   import { selectField } from '$lib/utils/select-field';
   import { select } from '$lib/utils/select-store';
@@ -14,6 +19,7 @@
   const cell = selectField(layout, 'cell');
   const width = selectField(cell, 'width');
   const height = selectField(cell, 'height');
+  const padding = selectField(page, 'padding');
   const cellSize = derived(layout, (l) => {
     return getCellSize(l);
   });
@@ -57,6 +63,18 @@
       }
     },
   );
+  const paddingAll = select(
+    padding,
+    (p) => {
+      return (p as PaddingAll).all;
+    },
+    (w: number | null) => {
+      if (w !== null) {
+        padding.set({ all: w });
+      }
+    },
+  );
+
   const fontSize = selectField(page, 'fontSize');
   $: colsActive = 'cols' in $width;
   $: widthActive = 'width' in $width;
@@ -121,6 +139,18 @@
       name="rows"
       class="x-input-group--input join-item"
       bind:value={$fontSize}
+    />
+    <div class="x-input-group--label join-item">mm</div>
+  </div>
+</div>
+<div>
+  <div class="x-input-group active join max-w-sm">
+    <div class="x-input-group--label join-item w-24">Padding</div>
+    <input
+      type="number"
+      name="padding"
+      class="x-input-group--input join-item"
+      bind:value={$paddingAll}
     />
     <div class="x-input-group--label join-item">mm</div>
   </div>

@@ -1,3 +1,5 @@
+import { A4 } from '$lib/editor/paper';
+
 export type PaddingX = { x: number } | { left: number } | { right: number };
 export type PaddingY = { y: number } | { top: number } | { bottom: number };
 export type PaddingAll = { all: number };
@@ -18,8 +20,10 @@ export type Size = {
   width: number;
   height: number;
 };
+export type PageLayout = PageLayoutV1;
 
-export type PageLayout = {
+export type PageLayoutV1 = {
+  schema: '1';
   cell: {
     width: Width;
     height: Height;
@@ -30,6 +34,20 @@ export type PageLayout = {
     height: number;
     fontSize: number;
   };
+};
+
+export const defaultPageLayout: PageLayout = {
+  schema: '1',
+  page: {
+    padding: { all: 20 },
+    width: A4.width,
+    height: A4.height,
+    fontSize: 16,
+  },
+  cell: {
+    width: { cols: 3 },
+    height: { height: 30 },
+  },
 };
 
 export function getPagePadding(config: PaddingConfig): Padding {

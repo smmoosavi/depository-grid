@@ -1,4 +1,6 @@
 <script lang="ts">
+  import LoadButton from '$lib/editor/layout-editor/LoadButton.svelte';
+  import SaveButton from '$lib/editor/layout-editor/SaveButton.svelte';
   import { getCellSize, getColsCount, getRowsCount } from '$lib/editor/state/page-layout';
   import { getStore } from '$lib/editor/state/store';
   import { selectField } from '$lib/utils/select-field';
@@ -62,6 +64,10 @@
   $: heightActive = 'height' in $height;
 </script>
 
+<div>
+  <SaveButton />
+  <LoadButton />
+</div>
 <div>
   <div class="x-input-group join max-w-sm" class:active={colsActive}>
     <div class="x-input-group--label join-item w-24">Columns</div>

@@ -1,4 +1,4 @@
-import { A4 } from '$lib/editor/paper';
+import { defaultPageLayout } from '$lib/editor/state/page-layout';
 import type { PageLayout } from '$lib/editor/state/page-layout';
 import { getContext, setContext } from 'svelte';
 import { type Writable, writable } from 'svelte/store';
@@ -102,18 +102,7 @@ export type Store = {
 export function createStore(): Store {
   const init: State = {
     items: [],
-    layout: {
-      page: {
-        padding: { all: 20 },
-        width: A4.width,
-        height: A4.height,
-        fontSize: 16,
-      },
-      cell: {
-        width: { cols: 3 },
-        height: { height: 30 },
-      },
-    },
+    layout: defaultPageLayout,
   };
   const state = writable(init);
   const dispatch = (action: Action) => {

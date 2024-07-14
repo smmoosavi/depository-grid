@@ -16,20 +16,10 @@
     "lint": "prettier --plugin-search-dir . --check . && eslint . --max-warnings 0",
     "format": "prettier --plugin-search-dir . --write .",
     "test:integration": "playwright test",
-    "test:unit": "vitest",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test:unit": "vitest"
   },
   "devDependencies": {
     "@playwright/test": "^1.28.1",
-    "@storybook/addon-essentials": "^7.0.27",
-    "@storybook/addon-interactions": "^7.0.27",
-    "@storybook/addon-links": "^7.0.27",
-    "@storybook/addon-svelte-csf": "^3.0.3",
-    "@storybook/blocks": "^7.0.27",
-    "@storybook/svelte": "^7.0.27",
-    "@storybook/sveltekit": "^7.0.27",
-    "@storybook/testing-library": "^0.0.14-next.2",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/adapter-static": "^2.0.2",
     "@sveltejs/kit": "^1.20.4",
@@ -41,7 +31,6 @@
     "devalue": "^4.3.2",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-svelte": "^2.30.0",
     "husky": "^8.0.3",
     "jest-leak-detector": "^29.6.1",
@@ -53,9 +42,6 @@
     "prettier": "^2.0.0",
     "prettier-plugin-svelte": "^2.10.1",
     "prettier-plugin-tailwindcss": "^0.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^7.0.27",
     "svelte": "^4.0.5",
     "svelte-check": "^3.4.3",
     "svelte-dnd-action": "^0.9.24",
@@ -68,10 +54,5 @@
     "vitest": "^0.33.0",
     "zod": "^3.21.4"
   },
-  "type": "module",
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
-  }
+  "type": "module"
 }

@@ -99,29 +99,29 @@ describe('isResult', () => {
 
     expect(isResult({})).toBe(false);
     expect(isResult({ isOk: () => true, isErr: () => false })).toBe(false);
+  });
 
-    it('should narrow types correctly', function () {
-      /* eslint-disable @typescript-eslint/no-unused-vars */
-      function fn1(o: number | Result<number, string>) {
-        if (isResult(o)) {
-          const v: Result<number, string> = o;
-        }
-        if (isResult(o)) {
-          // @ts-expect-error
-          const s: Result<string, string> = o;
-        }
+  it('should narrow types correctly', function () {
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    function fn1(o: number | Result<number, string>) {
+      if (isResult(o)) {
+        const v: Result<number, string> = o;
       }
+      if (isResult(o)) {
+        // @ts-expect-error
+        const s: Result<string, string> = o;
+      }
+    }
 
-      function fn2(o: any) {
-        if (isResult(o)) {
-          const s: Result<unknown, unknown> = o;
-        }
-        if (isResult(o)) {
-          // @ts-expect-error
-          const v: Result<number, string> = o;
-        }
+    function fn2(o: any) {
+      if (isResult(o)) {
+        const s: Result<unknown, unknown> = o;
       }
-      /* eslint-enable */
-    });
+      if (isResult(o)) {
+        // @ts-expect-error
+        const v: Result<number, string> = o;
+      }
+    }
+    /* eslint-enable */
   });
 });
